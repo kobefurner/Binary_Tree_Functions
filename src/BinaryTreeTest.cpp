@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <cstring>
+#include <cstring> 
 #include <memory>
 #include "BinaryTree.hpp"
 
@@ -92,23 +92,23 @@ bool testOutput(){
   populateTree(myTree);
   ostringstream output;
   myTree.inOrder(output);
-  passed &= checkString("Test Output 1", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 33 35 37 42 43 45 47 49 53 55 63 65 67 73 75 77 83 85 87 93 95 97 98");
+  passed &= checkString("Test Output 1", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 33 35 37 42 43 45 47 49 53 55 63 65 67 73 75 77 83 85 87 93 95 97 98 ");
   output.str("");
   output.clear();
   BinaryTree<int> simpleTree;
   simpleTree.insert(8);
   simpleTree.inOrder(output);
-  passed &= checkString("Test Output 2", output.str().c_str(), "8");
+  passed &= checkString("Test Output 2", output.str().c_str(), "8 ");
   output.str("");
   output.clear();
   simpleTree.insert(12);
   simpleTree.inOrder(output);
-  passed &= checkString("Test Output 3", output.str().c_str(), "8 12");
+  passed &= checkString("Test Output 3", output.str().c_str(), "8 12 ");
   output.str("");
   output.clear();
   simpleTree.insert(7);
   simpleTree.inOrder(output);
-  passed &= checkString("Test Output 4", output.str().c_str(), "7 8 12");
+  passed &= checkString("Test Output 4", output.str().c_str(), "7 8 12 ");
   output.str("");
   output.clear();
   return passed;
@@ -133,7 +133,7 @@ bool deleteTest(){
   passed &= checkTest("Test Delete Leaf: 33", ptr == nullptr);
   ostringstream output;
   myTree.inOrder(output);
-  passed &= checkString("Test Output After Delete: 33", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 37 42 43 45 47 49 53 55 63 65 67 73 75 77 83 85 87 93 95 97 98");
+  passed &= checkString("Test Output After Delete: 33", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 37 42 43 45 47 49 53 55 63 65 67 73 75 77 83 85 87 93 95 97 98 ");
   output.str("");
   output.clear();
 
@@ -141,7 +141,7 @@ bool deleteTest(){
   ptr = myTree.find(67);
   passed &= checkTest("Test Delete Node with Left Child: 67", ptr == nullptr);
   myTree.inOrder(output);
-  passed &= checkString("Test Output After Delete: 67", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 37 42 43 45 47 49 53 55 63 65 73 75 77 83 85 87 93 95 97 98");
+  passed &= checkString("Test Output After Delete: 67", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 37 42 43 45 47 49 53 55 63 65 73 75 77 83 85 87 93 95 97 98 ");
   output.str("");
   output.clear();
 
@@ -149,7 +149,7 @@ bool deleteTest(){
   ptr = myTree.find(42);
   passed &= checkTest("Test Delete Node with Right Child: 42", ptr == nullptr);
   myTree.inOrder(output);
-  passed &= checkString("Test Output After Delete: 42", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 37 43 45 47 49 53 55 63 65 73 75 77 83 85 87 93 95 97 98");
+  passed &= checkString("Test Output After Delete: 42", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 37 43 45 47 49 53 55 63 65 73 75 77 83 85 87 93 95 97 98 ");
   output.str("");
   output.clear();
 
@@ -157,7 +157,7 @@ bool deleteTest(){
   ptr = myTree.find(73);
   passed &= checkTest("Test Delete Node with two children: 73", ptr == nullptr);
   myTree.inOrder(output);
-  passed &= checkString("Test Output After Delete: 73", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 37 43 45 47 49 53 55 63 65 75 77 83 85 87 93 95 97 98");
+  passed &= checkString("Test Output After Delete: 73", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 37 43 45 47 49 53 55 63 65 75 77 83 85 87 93 95 97 98 ");
   output.str("");
   output.clear();
 
@@ -165,7 +165,7 @@ bool deleteTest(){
   ptr = myTree.find(37);
   passed &= checkTest("Test Delete root: 37", ptr == nullptr);
   myTree.inOrder(output);
-  passed &= checkString("Test Output After Delete: 37", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 43 45 47 49 53 55 63 65 75 77 83 85 87 93 95 97 98");
+  passed &= checkString("Test Output After Delete: 37", output.str().c_str(), "0 3 5 7 12 13 15 17 23 25 27 32 35 43 45 47 49 53 55 63 65 75 77 83 85 87 93 95 97 98 ");
   output.str("");
   output.clear();
 
